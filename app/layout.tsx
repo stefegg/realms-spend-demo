@@ -1,20 +1,19 @@
-import type { Metadata } from "next";
-import { Cutive } from "next/font/google";
-import "./globals.css";
-import { Header } from "@/components/Header";
-import { AppSidebar } from "@/components/Sidebar";
-import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import type { Metadata } from 'next';
+import { Cutive } from 'next/font/google';
+import './globals.css';
+import { Header } from '@/components/Header';
+import { AppSidebar } from '@/components/Sidebar';
+import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 
-const cutiveFont = Cutive({
-  variable: "--font-cutive",
-  subsets: ["latin"],
-  weight: ['400'],
-
-})
+const cutive = Cutive({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-cutive',
+});
 
 export const metadata: Metadata = {
-  title: "Realms Spend Demo",
-  description: "Realms Spend Demo",
+  title: 'Realms Spend Demo',
+  description: 'Realms Spend Demo',
 };
 
 export default function RootLayout({
@@ -24,19 +23,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${cutiveFont.variable} bg-gray-50`}
-      >
-        <SidebarProvider>
+      <body className={`${cutive.variable} ${cutive.className} bg-gray-50`}>
+        <SidebarProvider defaultOpen={false}>
           <AppSidebar />
-                <SidebarInset>
-
-              <Header />
-                {children}
-            </SidebarInset>
+          <SidebarInset>
+            <Header />
+            {children}
+          </SidebarInset>
         </SidebarProvider>
       </body>
     </html>
   );
 }
-

@@ -6,19 +6,13 @@ import { Button } from '@/components/ui/button';
 export function Header() {
   return (
     <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-4">
-      {/* Sidebar trigger */}
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="mr-2 h-4" />
-
-      {/* Logo/Brand */}
       <div className="flex items-center gap-2">
-        <h1 className="text-lg font-semibold">My App</h1>
+        {/* @@TODO generate based on location */}
+        {/* <h1 className="text-lg font-semibold">My App</h1> */}
       </div>
-
-      {/* Spacer */}
       <div className="flex-1" />
-
-      {/* Header actions */}
       <div className="flex items-center gap-2">
         <Button variant="ghost" size="icon" className="h-8 w-8">
           <Search className="h-4 w-4" />

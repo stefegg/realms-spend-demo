@@ -1,5 +1,10 @@
+'use client';
 import type * as React from 'react';
-import { Home, BarChart3 } from 'lucide-react';
+import {
+  BetweenHorizontalStart,
+  ClipboardPlus,
+  UserRoundPen,
+} from 'lucide-react';
 import Image from 'next/image';
 import {
   Sidebar,
@@ -10,31 +15,32 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarRail,
 } from '@/components/ui/sidebar';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const items = [
   {
     title: 'Invoice Match',
-    url: '/',
-    icon: Home,
+    url: '/invoice-match',
+    icon: BetweenHorizontalStart,
   },
   {
     title: 'Reporting',
-    url: '/dashboard',
-    icon: BarChart3,
+    url: '/reporting',
+    icon: ClipboardPlus,
   },
   {
     title: 'Clients',
-    url: '/dashboard',
-    icon: BarChart3,
+    url: '/clients',
+    icon: UserRoundPen,
   },
 ];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const pathName = usePathname();
   return (
-    <Sidebar {...props} collapsible="icon" className="bg-red-500">
+    <Sidebar {...props} collapsible="icon">
       <SidebarHeader className="bg-gray-50">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -48,7 +54,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   className="object-contain"
                 />
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="">Realms Spend</span>
+                  <span className="text-md pt-1">Realms Spend</span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -56,17 +62,24 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className="bg-gray-50">
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="gap-2">
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild tooltip={item.title}>
-                    <a href={item.url}>
+                <SidebarMenuItem key={item.title} className="cursor-pointer">
+                  <SidebarMenuButton
+                    asChild
+                    tooltip={item.title}
+                    className="hover:bg-red-100
+                    data-[active=true]:bg-red-500 data-[active=true]:text-white
+                    "
+                    isActive={pathName === item.url}
+                  >
+                    <Link href={item.url}>
                       <item.icon />
-                      <span>{item.title}</span>
-                    </a>
+                      <span className="pt-1">{item.title}</span>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -74,7 +87,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarRail />
     </Sidebar>
   );
 }
