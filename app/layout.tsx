@@ -23,12 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${cutive.variable} ${cutive.className} bg-gray-50`}>
+      <body className={`${cutive.variable} ${cutive.className}`}>
         <SidebarProvider defaultOpen={false}>
           <AppSidebar />
           <SidebarInset>
             <Header />
-            {children}
+            <main className="bg-content-bg min-h-screen">{children}</main>
           </SidebarInset>
         </SidebarProvider>
       </body>

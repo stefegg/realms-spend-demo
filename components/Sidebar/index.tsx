@@ -15,6 +15,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from '@/components/ui/sidebar';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -39,13 +40,18 @@ const items = [
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathName = usePathname();
+  const { setOpenMobile } = useSidebar();
+
+  const handleItemClick = () => {
+    setOpenMobile(false);
+  };
   return (
     <Sidebar {...props} collapsible="icon">
       <SidebarHeader className="bg-gray-50">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild tooltip="Realms Spend">
-              <Link href="/">
+              <Link href="/" onClick={handleItemClick}>
                 <Image
                   src="/realms_sm.png"
                   alt="Realms Logo"
@@ -76,7 +82,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     "
                     isActive={pathName === item.url}
                   >
-                    <Link href={item.url}>
+                    <Link href={item.url} onClick={handleItemClick}>
                       <item.icon />
                       <span className="pt-1">{item.title}</span>
                     </Link>
