@@ -78,7 +78,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                     asChild
                     tooltip={item.title}
                     className="hover:bg-red-100
-                    data-[active=true]:bg-red-500 data-[active=true]:text-white
+                    data-[active=true]:bg-realms data-[active=true]:text-white
                     "
                     isActive={pathName === item.url}
                   >
