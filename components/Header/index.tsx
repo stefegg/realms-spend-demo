@@ -13,11 +13,11 @@ export function Header() {
       case '/':
         return '';
       case '/reporting':
-        return 'Reporting';
+        return '- Reporting';
       case '/clients':
-        return 'Clients';
+        return '- Clients';
       case '/invoice-match':
-        return 'Invoice Match';
+        return '- Invoice Match';
     }
   };
   return (
@@ -33,7 +33,7 @@ export function Header() {
           className="object-contain"
         />
         <h1 className="text-lg font-semibold pt-1.5">
-          Realms Spend - {getHeaderText(pathName)}
+          Realms Spend {getHeaderText(pathName)}
         </h1>
       </div>
       <div className="flex-1" />

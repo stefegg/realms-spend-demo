@@ -28,7 +28,9 @@ export default function RootLayout({
           <AppSidebar />
           <SidebarInset>
             <Header />
-            <main className="bg-content-bg min-h-screen">{children}</main>
+            <main className="bg-content-bg min-h-[calc(100vh-4rem)]">
+              {children}
+            </main>
           </SidebarInset>
         </SidebarProvider>
       </body>
