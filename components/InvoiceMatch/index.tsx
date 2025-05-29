@@ -75,15 +75,17 @@ export function InvoiceMatch({ invoiceData }: { invoiceData: Invoice[] }) {
               <div className="space-y-2">
                 {/* Vendor & Property */}
                 <div className="grid grid-cols-2 gap-2">
-                  <div className="bg-gray-50 p-3 px-2 rounded-lg border border-gray-600">
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="text-xs font-semibold text-gray-600 uppercase flex flex-row gap-1">
-                        <Building className="w-4 h-4 text-gray-600" />
-                        <div className="pt-1">Vendor:</div>
+                  <div className="bg-gray-50 p-3 px-2 rounded-lg border border-gray-600 flex flex-col h-full">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="text-xs font-semibold text-gray-600 uppercase flex flex-row gap-1">
+                          <Building className="w-4 h-4 text-gray-600" />
+                          <div className="pt-1">Vendor:</div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="font-semibold text-gray-900 flex flex-row gap-1">
-                      {invoice.vendor}
+                      <div className="font-semibold text-gray-900 flex flex-row gap-1">
+                        {invoice.vendor}
+                      </div>
                     </div>
                     <div className="text-sm text-gray-600 flex flex-row gap-1">
                       ID:
@@ -91,16 +93,18 @@ export function InvoiceMatch({ invoiceData }: { invoiceData: Invoice[] }) {
                     </div>
                   </div>
 
-                  <div className="p-3 px-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-md border border-blue-300 flex flex-col">
-                    <div className="flex items-center gap-2 mb-1">
-                      <div className="text-xs font-semibold text-blue-600 uppercase flex flex-row gap-1">
-                        <MapPin className="w-4 h-4 text-blue-500" />
-                        <div className="pt-1">Property:</div>
+                  <div className="p-3 px-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-md border border-blue-300 flex flex-col h-full">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="text-xs font-semibold text-blue-600 uppercase flex flex-row gap-1">
+                          <MapPin className="w-4 h-4 text-blue-500" />
+                          <div className="pt-1">Property:</div>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="font-semibold text-blue-900 flex flex-row gap-1">
-                      <div>{invoice.property}</div>
+                      <div className="font-semibold text-blue-900 flex flex-row gap-1">
+                        <div>{invoice.property}</div>
+                      </div>
                     </div>
                     <div className="text-sm text-blue-600 flex flex-row gap-1">
                       Code:
