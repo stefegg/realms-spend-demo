@@ -5,6 +5,8 @@ export type Invoice = {
   invoiceNo: string;
   vendor: string;
   amount: number;
-  date: Date;
+  date: string;
   property: string;
+  vendorId: string;
+  propertyId: string;
 };
