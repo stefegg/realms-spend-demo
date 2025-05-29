@@ -17,10 +17,13 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Invoice } from '@/app/_types';
+import { useContext } from 'react';
+import { ModalContext } from '@/app/_providers/modal-provider';
 
 export function InvoiceMatch({ invoiceData }: { invoiceData: Invoice[] }) {
   const [selectedAction, setSelectedAction] = useState<string | null>(null);
-
+  const { setShowModal, setModalType, setModalContent } =
+    useContext(ModalContext);
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -34,6 +37,13 @@ export function InvoiceMatch({ invoiceData }: { invoiceData: Invoice[] }) {
       day: 'numeric',
       year: 'numeric',
     });
+  };
+
+  const clickViewInvoice = () => {
+    console.log('---banana');
+    setModalType('image');
+    setModalContent('/realms_sm.png');
+    setShowModal(true);
   };
 
   return (
@@ -65,6 +75,7 @@ export function InvoiceMatch({ invoiceData }: { invoiceData: Invoice[] }) {
                   variant="ghost"
                   size="sm"
                   className="h-7 px-2 text-xs hover:bg-blue-50 cursor-pointer border"
+                  onClick={() => clickViewInvoice()}
                 >
                   <Eye className="w-3 h-3 mr-1" />
                   <div className="pt-1">View Invoice</div>
