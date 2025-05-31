@@ -5,7 +5,6 @@ import {
   ClipboardPlus,
   UserRoundPen,
 } from 'lucide-react';
-import Image from 'next/image';
 import {
   Sidebar,
   SidebarContent,
@@ -18,6 +17,7 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar';
 import Link from 'next/link';
+import { RealmsLogo } from '../RealmsLogo';
 import { usePathname } from 'next/navigation';
 
 const items = [
@@ -52,13 +52,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild tooltip="Realms Spend">
               <Link href="/" onClick={handleItemClick}>
-                <Image
-                  src="/realms_sm.png"
-                  alt="Realms Logo"
-                  width={32}
-                  height={32}
-                  className="object-contain"
-                />
+                <RealmsLogo size={24} />
                 <div className="flex flex-col gap-0.5 leading-none">
                   <span className="text-md pt-1">Realms Spend</span>
                 </div>

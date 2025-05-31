@@ -3,8 +3,8 @@ import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Separator } from '@/components/ui/separator';
 import { Bell, Search, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { RealmsLogo } from '../RealmsLogo';
 
 export function Header() {
   const pathName = usePathname();
@@ -27,13 +27,7 @@ export function Header() {
       <SidebarTrigger className="-ml-1 cursor-pointer" />
       <Separator orientation="vertical" className="mr-1 h-4" />
       <div className="flex items-center gap-2">
-        <Image
-          src="/realms_sm.png"
-          alt="Realms Logo"
-          width={32}
-          height={32}
-          className="object-contain"
-        />
+        <RealmsLogo size={32} />
         <h1 className="text-lg font-semibold pt-1.5">
           Realms Spend{getHeaderText(pathName)}
         </h1>
