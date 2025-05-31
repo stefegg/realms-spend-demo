@@ -13,8 +13,8 @@ export default function SiteModal() {
           <Image
             alt="image"
             src={modalContent}
-            width={0}
-            height={0}
+            width={500}
+            height={500}
             style={{
               width: '75%',
               height: '75%',
@@ -29,10 +29,10 @@ export default function SiteModal() {
   return (
     showModal && (
       <div
-        className={`absolute w-full h-full bg-black/50 top-0  overflow-hidden cursor-pointer bg-opacity-80`}
+        className={`absolute w-full h-full bg-black/50 top-0 cursor-pointer bg-opacity-80 p-12 z-100`}
         onClick={() => setShowModal(false)}
       >
-        <div className="flex items-center justify-center h-full">
+        <div className="flex items-center justify-center h-full bg-white rounded-lg overflow-auto">
           {getModal()}
         </div>
       </div>
