@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
   Flag,
   AlertTriangle,
@@ -31,6 +31,19 @@ export function InvoiceMatch({
   const [isRemoving, setIsRemoving] = useState(false);
   const { setShowModal, setModalType, setModalContent } =
     useContext(ModalContext);
+  const confirmationRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (selectedAction && confirmationRef.current) {
+      setTimeout(() => {
+        confirmationRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+        });
+      }, 100);
+    }
+  }, [selectedAction]);
+
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -239,7 +252,10 @@ export function InvoiceMatch({
 
       {/* Action Confirmation */}
       {selectedAction && (
-        <div className="mt-4 p-3 bg-white shadow-sm rounded-lg">
+        <div
+          ref={confirmationRef}
+          className="mt-4 p-3 bg-white shadow-sm rounded-lg"
+        >
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-6 h-6 bg-red-500 rounded-full">
               <Check className="w-3 h-3 text-gray-50" />
