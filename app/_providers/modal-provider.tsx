@@ -27,7 +27,7 @@ interface Props {
 
 export const ModalProvider: React.FC<Props> = ({ children }) => {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [modalType, setModalType] = useState<string>('landing');
+  const [modalType, setModalType] = useState<string>('');
   const [modalContent, setModalContent] = useState<string>('');
 
   const value = {

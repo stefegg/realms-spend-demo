@@ -9,4 +9,5 @@ export type Invoice = {
   property: string;
   vendorId: string;
   propertyId: string;
+  imageId: string;
 };

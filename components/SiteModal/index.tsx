@@ -29,7 +29,7 @@ export default function SiteModal() {
   return (
     showModal && (
       <div
-        className={`absolute w-full h-full bg-black/50 top-0 cursor-pointer bg-opacity-80 p-12 z-100`}
+        className={`absolute w-full h-full max-h-screen bg-black/50 top-0 cursor-pointer bg-opacity-80 p-12 z-100`}
         onClick={() => setShowModal(false)}
       >
         <div className="flex items-center justify-center h-full bg-white rounded-lg overflow-auto">
