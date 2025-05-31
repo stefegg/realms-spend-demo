@@ -59,9 +59,9 @@ export function InvoiceMatch({
     });
   };
 
-  const clickViewInvoice = () => {
+  const clickViewInvoice = (imageId: string) => {
     setModalType('image');
-    setModalContent('/realms_lg.png');
+    setModalContent(imageId);
     setShowModal(true);
   };
 
@@ -122,7 +122,7 @@ export function InvoiceMatch({
                   variant="ghost"
                   size="sm"
                   className="h-7 px-2 text-xs hover:bg-blue-50 cursor-pointer bg-gray-100 shadow-sm"
-                  onClick={() => clickViewInvoice()}
+                  onClick={() => clickViewInvoice(invoice.imageId)}
                 >
                   <Eye className="w-3 h-3 mr-1 text-blue-600" />
                   <div className="pt-1">View Invoice</div>
