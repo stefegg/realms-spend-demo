@@ -5,6 +5,7 @@ import { Bell, Search, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
 import { RealmsLogo } from '../RealmsLogo';
+import Link from 'next/link';
 
 export function Header() {
   const pathName = usePathname();
@@ -27,7 +28,9 @@ export function Header() {
       <SidebarTrigger className="-ml-1 cursor-pointer" />
       <Separator orientation="vertical" className="mr-1 h-4" />
       <div className="flex items-center gap-2">
-        <RealmsLogo size={32} />
+        <Link href="/">
+          <RealmsLogo size={32} />
+        </Link>
         <h1 className="text-lg font-semibold pt-1.5">
           Realms Spend{getHeaderText(pathName)}
         </h1>
