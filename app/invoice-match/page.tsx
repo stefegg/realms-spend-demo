@@ -9,9 +9,9 @@ export default function InvoiceMatchPage() {
   const [invoiceGroups, setInvoiceGroups] =
     useState<Invoice[][]>(matchInvoices);
 
-  const removeInvoiceGroup = (indexToRemove: number) => {
+  const removeInvoiceGroup = (controlNoToRemove: string) => {
     setInvoiceGroups((prevGroups) =>
-      prevGroups.filter((_, index) => index !== indexToRemove),
+      prevGroups.filter((group) => group[0].controlNo !== controlNoToRemove),
     );
   };
 
@@ -29,8 +29,8 @@ export default function InvoiceMatchPage() {
         </div>
       ) : (
         <>
-          <div className="flex items-center gap-2 mb-6 px-4">
-            <div className="flex items-center justify-center w-12 h-12 bg-red-100 rounded-lg">
+          <div className="flex items-center gap-2 mb-6 px-4 ">
+            <div className="flex items-center justify-center w-12 h-12 border border-red-500 bg-white border-2 rounded-lg">
               <AlertTriangle className="w-6 h-6 text-red-600" />
             </div>
             <div className="gap-2">
@@ -42,11 +42,11 @@ export default function InvoiceMatchPage() {
               </p>
             </div>
           </div>
-          {invoiceGroups.map((inv, idx) => (
+          {invoiceGroups.map((inv) => (
             <InvoiceMatch
               invoiceData={inv}
-              key={idx}
-              onConfirm={() => removeInvoiceGroup(idx)}
+              key={inv[0].controlNo}
+              onConfirm={() => removeInvoiceGroup(inv[0].controlNo)}
             />
           ))}
         </>
