@@ -54,7 +54,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               <Link href="/" onClick={handleItemClick}>
                 <RealmsLogo size={24} />
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="text-md pt-1">Realms Spend</span>
+                  <span className="text-md">Realms Spend</span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -78,7 +78,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   >
                     <Link href={item.url} onClick={handleItemClick}>
                       <item.icon />
-                      <span className="pt-1">{item.title}</span>
+                      <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

@@ -7,7 +7,6 @@ import {
   Building2,
   Calendar,
   FileText,
-  MapPin,
   Building,
   Check,
   CircleCheck,
@@ -125,7 +124,7 @@ export function InvoiceMatch({
                   onClick={() => clickViewInvoice(invoice.imageId)}
                 >
                   <Eye className="w-3 h-3 mr-1 text-blue-600" />
-                  <div className="pt-1">View Invoice</div>
+                  <div>View Invoice</div>
                 </Button>
               </div>
 
@@ -138,7 +137,7 @@ export function InvoiceMatch({
                       <div className="flex items-center gap-2 mb-1">
                         <div className="text-xs font-semibold text-gray-600 uppercase flex flex-row gap-1">
                           <Building className="w-4 h-4 text-blue-600" />
-                          <div className="pt-1">Vendor:</div>
+                          <div>Vendor:</div>
                         </div>
                       </div>
                       <div className="font-semibold text-gray-900 flex flex-row gap-1">
@@ -151,7 +150,7 @@ export function InvoiceMatch({
                     </div>
                   </div>
 
-                  <div className="p-3 px-2 bg-white shadow-sm rounded-md flex flex-col h-full">
+                  {/* <div className="p-3 px-2 bg-white shadow-sm rounded-md flex flex-col h-full">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
                         <div className="text-xs font-semibold text-gray-600 uppercase flex flex-row gap-1">
@@ -168,7 +167,7 @@ export function InvoiceMatch({
                       Code:
                       <div>{invoice.propertyId}</div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Amount & Date */}
@@ -177,7 +176,7 @@ export function InvoiceMatch({
                     <div>
                       <div className="text-sm font-medium text-gray-500 uppercase items-center flex flex-row gap-1">
                         <BadgeDollarSign className="w-4 h-4 text-green-600" />
-                        <p className="pt-2">Amount</p>
+                        <p>Amount</p>
                       </div>
                       <p className="font-bold text-md text-gray-900">
                         {formatCurrency(invoice.amount)}
@@ -189,7 +188,7 @@ export function InvoiceMatch({
                     <div className="flex flex-col gap-1">
                       <div className="text-sm font-medium text-gray-500 uppercase items-center flex flex-row gap-1">
                         <Calendar className="w-4 h-4 text-blue-600" />
-                        <p className="pt-2">Invoice Date</p>
+                        <p>Invoice Date</p>
                       </div>
                       <p className="font-medium text-md text-gray-900">
                         {formatDate(invoice.date)}
@@ -204,7 +203,7 @@ export function InvoiceMatch({
       </div>
 
       {/* Action Buttons */}
-      <div className="flex flex-wrap gap-2 justify-end pt-1">
+      <div className="flex flex-wrap gap-2 justify-end">
         <Button
           onClick={() =>
             setSelectedAction(selectedAction === 'invoice' ? null : 'invoice')
@@ -213,40 +212,38 @@ export function InvoiceMatch({
           disabled={isRemoving}
         >
           <Flag className="w-3 h-3" />
-          <div className="pt-1">Flag Invoice</div>
+          <div>Flag Invoice</div>
         </Button>
 
         <Button
           onClick={() =>
             setSelectedAction(selectedAction === 'vendor' ? null : 'vendor')
           }
-          className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white border-0 text-sm h-8 cursor-pointer hover:text-white shadow-sm"
+          className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-900 text-white border-0 text-sm h-8 cursor-pointer hover:text-white shadow-sm"
           disabled={isRemoving}
         >
           <Building2 className="w-3 h-3" />
-          <div className="pt-1">Flag Vendor</div>
+          <div>Flag Vendor</div>
         </Button>
 
         <Button
           onClick={() =>
             setSelectedAction(selectedAction === 'other' ? null : 'other')
           }
-          className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white border-0 text-sm h-8 cursor-pointer hover:text-white shadow-sm"
+          className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-900 text-white border-0 text-sm h-8 cursor-pointer hover:text-white shadow-sm"
           disabled={isRemoving}
         >
           <AlertTriangle className="w-3 h-3" />
-          <div className="pt-1">Flag Other</div>
+          <div>Flag Other</div>
         </Button>
 
         <Button
-          onClick={() =>
-            setSelectedAction(selectedAction === 'clear' ? null : 'clear')
-          }
+          onClick={() => handleConfirm()}
           className="flex items-center gap-2 px-4 py-2 text-white hover:text-white text-sm h-8 cursor-pointer bg-green-600 hover:bg-green-900 shadow-sm"
           disabled={isRemoving}
         >
           <CircleCheck className="w-3 h-3" />
-          <div className="pt-1">Clear</div>
+          <div>Clear</div>
         </Button>
       </div>
 
@@ -270,7 +267,7 @@ export function InvoiceMatch({
             </div>
             <Button
               size="sm"
-              className="bg-green-600 hover:bg-green-900 text-xs px-3 py-1 pt-2 cursor-pointer"
+              className="bg-green-600 hover:bg-green-900 text-xs px-3 py-1 cursor-pointer"
               onClick={handleConfirm}
               disabled={isRemoving}
             >
@@ -278,7 +275,7 @@ export function InvoiceMatch({
             </Button>
             <Button
               size="sm"
-              className="bg-red-600 hover:bg-red-900 text-xs px-3 py-1 pt-2 cursor-pointer"
+              className="bg-red-600 hover:bg-red-900 text-xs px-3 py-1 cursor-pointer"
               disabled={isRemoving}
             >
               Cancel

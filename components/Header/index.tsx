@@ -31,7 +31,7 @@ export function Header() {
         <Link href="/">
           <RealmsLogo size={32} />
         </Link>
-        <h1 className="text-lg font-semibold pt-1.5">
+        <h1 className="text-lg font-semibold">
           Realms Spend{getHeaderText(pathName)}
         </h1>
       </div>

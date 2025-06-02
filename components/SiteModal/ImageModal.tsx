@@ -54,7 +54,7 @@ export default function ImageModal() {
   };
 
   const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
 
     const delta = e.deltaY > 0 ? -0.1 : 0.1;
@@ -96,7 +96,7 @@ export default function ImageModal() {
         >
           <RotateCcw className="w-5 h-5 text-gray-700" />
         </button>
-        <div className="flex items-center bg-black bg-opacity-50 text-white px-3 pt-1 rounded-full text-sm z-10">
+        <div className="flex items-center bg-black bg-opacity-50 text-white px-3 rounded-full text-sm z-10">
           {Math.round(scale * 100)}%
         </div>
       </div>
