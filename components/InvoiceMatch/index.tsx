@@ -103,28 +103,15 @@ export function InvoiceMatch({
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-red-600"></div>
             <CardContent className="px-4">
               {/* Header */}
-              <div className="flex items-start justify-between mb-3 bg-white shadow-sm p-4 rounded-lg">
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center justify-center w-12 h-12 bg-red-500 rounded-lg">
-                    <FileText className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900 text-sm">
-                      Invoice No: {invoice.invoiceNo}
-                    </h3>
-                    <p className="font-semibold text-gray-900 text-sm">
-                      Control No: {invoice.controlNo}
-                    </p>
-                  </div>
-                </div>
+              <div className="flex justify-end mb-2 rounded-lg">
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-7 px-2 text-xs hover:bg-blue-50 cursor-pointer bg-gray-100 shadow-sm"
+                  className="h-7 px-2 text-xs hover:bg-blue-50 cursor-pointer bg-white shadow-sm"
                   onClick={() => clickViewInvoice(invoice.imageId)}
                 >
                   <Eye className="w-3 h-3 mr-1 text-blue-600" />
-                  <div>View Invoice</div>
+                  <div className="text-sm font-medium">View Invoice</div>
                 </Button>
               </div>
 
@@ -135,12 +122,28 @@ export function InvoiceMatch({
                   <div className="bg-white shadow-sm p-3 px-2 rounded-lg flex flex-col h-full">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <div className="text-xs font-semibold text-gray-600 uppercase flex flex-row gap-1">
-                          <Building className="w-4 h-4 text-blue-600" />
-                          <div>Vendor:</div>
+                        <div className="text-sm font-medium text-gray-500 uppercase items-center flex flex-row gap-1">
+                          <FileText className="w-4 h-4 text-red-600" />
+                          <div>Invoice</div>
                         </div>
                       </div>
-                      <div className="font-semibold text-gray-900 flex flex-row gap-1">
+                      <div className="font-medium text-gray-900 flex flex-row gap-1">
+                        Invoice No: {invoice.invoiceNo}
+                      </div>
+                    </div>
+                    <div className="text-sm text-gray-600 flex flex-row gap-1">
+                      Control No: {invoice.controlNo}
+                    </div>
+                  </div>
+                  <div className="bg-white shadow-sm p-3 px-2 rounded-lg flex flex-col h-full">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="text-sm font-medium text-gray-500 uppercase items-center flex flex-row gap-1">
+                          <Building className="w-4 h-4 text-blue-600" />
+                          <div>Vendor</div>
+                        </div>
+                      </div>
+                      <div className="font-medium text-gray-900 flex flex-row gap-1">
                         {invoice.vendor}
                       </div>
                     </div>
@@ -149,25 +152,6 @@ export function InvoiceMatch({
                       <div>{invoice.vendorId}</div>
                     </div>
                   </div>
-
-                  {/* <div className="p-3 px-2 bg-white shadow-sm rounded-md flex flex-col h-full">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="text-xs font-semibold text-gray-600 uppercase flex flex-row gap-1">
-                          <MapPin className="w-4 h-4 text-red-500" />
-                          <div className="pt-1">Property:</div>
-                        </div>
-                      </div>
-
-                      <div className="font-semibold text-gray-900 flex flex-row gap-1">
-                        <div>{invoice.property}</div>
-                      </div>
-                    </div>
-                    <div className="text-sm text-gray-600 flex flex-row gap-1">
-                      Code:
-                      <div>{invoice.propertyId}</div>
-                    </div>
-                  </div> */}
                 </div>
 
                 {/* Amount & Date */}
@@ -178,7 +162,7 @@ export function InvoiceMatch({
                         <BadgeDollarSign className="w-4 h-4 text-green-600" />
                         <p>Amount</p>
                       </div>
-                      <p className="font-bold text-md text-gray-900">
+                      <p className="font-medium text-md text-gray-900">
                         {formatCurrency(invoice.amount)}
                       </p>
                     </div>
