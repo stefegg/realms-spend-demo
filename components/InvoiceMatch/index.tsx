@@ -102,7 +102,7 @@ export function InvoiceMatch({
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-red-600"></div>
             <CardContent className="px-4">
-              {/* Header */}
+              {/* View Invoice Button Header */}
               <div className="flex justify-end mb-2 rounded-lg">
                 <Button
                   variant="ghost"
@@ -117,7 +117,7 @@ export function InvoiceMatch({
 
               {/* Invoice Details */}
               <div className="space-y-2">
-                {/* Vendor & Property */}
+                {/* Invoice & Vendor */}
                 <div className="grid grid-cols-2 gap-2">
                   <div className="bg-white shadow-sm p-3 px-2 rounded-lg flex flex-col h-full">
                     <div className="flex-1">

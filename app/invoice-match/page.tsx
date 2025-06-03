@@ -4,11 +4,13 @@ import { Invoice } from '../_types';
 import { InvoiceMatch } from '@/components/InvoiceMatch';
 import { AlertTriangle } from 'lucide-react';
 import { matchInvoices } from '../_api';
+import { useContext } from 'react';
+import { ModalContext } from '@/app/_providers/modal-provider';
 
 export default function InvoiceMatchPage() {
   const [invoiceGroups, setInvoiceGroups] =
     useState<Invoice[][]>(matchInvoices);
-
+  const { showModal } = useContext(ModalContext);
   const removeInvoiceGroup = (controlNoToRemove: string) => {
     setInvoiceGroups((prevGroups) =>
       prevGroups.filter((group) => group[0].controlNo !== controlNoToRemove),
@@ -16,7 +18,9 @@ export default function InvoiceMatchPage() {
   };
 
   return (
-    <main className="p-8">
+    <main
+      className={`p-8 h-[calc(100vh-4rem)] ${showModal ? 'overflow-hidden' : 'overflow-auto'}`}
+    >
       {invoiceGroups.length === 0 ? (
         <div className="text-center py-12">
           <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mx-auto mb-4">
