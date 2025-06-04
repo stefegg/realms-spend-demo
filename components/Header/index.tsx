@@ -24,7 +24,7 @@ export function Header() {
     }
   };
   return (
-    <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2 bg-white px-4">
+    <header className="sticky top-0 z-50 flex h-16 shrink-0 items-center gap-2 bg-white px-4 shadow-sm">
       <SidebarTrigger className="-ml-1 cursor-pointer" />
       <Separator orientation="vertical" className="mr-1 h-4" />
       <div className="flex items-center gap-2">

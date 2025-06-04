@@ -46,10 +46,10 @@ export default function InvoiceMatchPage() {
               </p>
             </div>
           </div>
-          {invoiceGroups.map((inv) => (
+          {invoiceGroups.map((inv, idx) => (
             <InvoiceMatch
               invoiceData={inv}
-              key={inv[0].controlNo}
+              key={`${inv[0].controlNo}-${idx}`}
               onConfirm={() => removeInvoiceGroup(inv[0].controlNo)}
             />
           ))}

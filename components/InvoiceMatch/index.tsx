@@ -95,9 +95,9 @@ export function InvoiceMatch({
   return (
     <div className={`mx-auto px-4 space-y-2 mb-4 ${getAnimationClasses()}`}>
       <div className="grid md:grid-cols-2 gap-4">
-        {invoiceData.map((invoice) => (
+        {invoiceData.map((invoice, idx) => (
           <Card
-            key={invoice.controlNo}
+            key={`${invoice.controlNo}-${idx}`}
             className="relative overflow-hidden border-0 shadow-md bg-gray-100"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-500 to-red-600"></div>
