@@ -4,19 +4,23 @@ import { Invoice } from '../_types';
 import { InvoiceMatch } from '@/components/InvoiceMatch';
 import { AlertTriangle } from 'lucide-react';
 import { matchInvoices } from '../_api';
+import { useContext } from 'react';
+import { ModalContext } from '@/app/_providers/modal-provider';
 
 export default function InvoiceMatchPage() {
   const [invoiceGroups, setInvoiceGroups] =
     useState<Invoice[][]>(matchInvoices);
-
-  const removeInvoiceGroup = (indexToRemove: number) => {
+  const { showModal } = useContext(ModalContext);
+  const removeInvoiceGroup = (controlNoToRemove: string) => {
     setInvoiceGroups((prevGroups) =>
-      prevGroups.filter((_, index) => index !== indexToRemove),
+      prevGroups.filter((group) => group[0].controlNo !== controlNoToRemove),
     );
   };
 
   return (
-    <main className="p-8">
+    <main
+      className={`p-8 h-[calc(100vh-4rem)] ${showModal ? 'overflow-hidden' : 'overflow-auto'}`}
+    >
       {invoiceGroups.length === 0 ? (
         <div className="text-center py-12">
           <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mx-auto mb-4">
@@ -29,8 +33,8 @@ export default function InvoiceMatchPage() {
         </div>
       ) : (
         <>
-          <div className="flex items-center gap-2 mb-6 px-4">
-            <div className="flex items-center justify-center w-12 h-12 bg-red-100 rounded-lg">
+          <div className="flex items-center gap-2 mb-6 px-4 ">
+            <div className="flex items-center justify-center w-12 h-12 border border-red-500 bg-white border-2 rounded-lg">
               <AlertTriangle className="w-6 h-6 text-red-600" />
             </div>
             <div className="gap-2">
@@ -45,8 +49,8 @@ export default function InvoiceMatchPage() {
           {invoiceGroups.map((inv, idx) => (
             <InvoiceMatch
               invoiceData={inv}
-              key={idx}
-              onConfirm={() => removeInvoiceGroup(idx)}
+              key={`${inv[0].controlNo}-${idx}`}
+              onConfirm={() => removeInvoiceGroup(inv[0].controlNo)}
             />
           ))}
         </>

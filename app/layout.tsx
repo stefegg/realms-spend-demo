@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Cutive } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { AppSidebar } from '@/components/Sidebar';
@@ -7,10 +7,14 @@ import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 import SiteModal from '@/components/SiteModal';
 import { ModalProvider } from './_providers/modal-provider';
 
-const cutive = Cutive({
-  weight: '400',
+const geistSans = Geist({
+  variable: '--font-geist-sans',
   subsets: ['latin'],
-  variable: '--font-cutive',
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +30,7 @@ export default function RootLayout({
   return (
     <ModalProvider>
       <html lang="en">
-        <body className={`${cutive.variable} ${cutive.className}`}>
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
           <SidebarProvider defaultOpen={false}>
             <AppSidebar />
             <SidebarInset>
