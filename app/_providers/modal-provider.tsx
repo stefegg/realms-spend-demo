@@ -8,8 +8,8 @@ interface ModalContextType {
   setShowModal: Dispatch<SetStateAction<boolean>>;
   modalType: string;
   setModalType: Dispatch<SetStateAction<string>>;
-  modalContent: string;
-  setModalContent: Dispatch<SetStateAction<string>>;
+  modalContent: string[];
+  setModalContent: Dispatch<SetStateAction<string[]>>;
 }
 
 export const ModalContext = createContext<ModalContextType>({
@@ -17,7 +17,7 @@ export const ModalContext = createContext<ModalContextType>({
   setShowModal: () => null,
   modalType: '',
   setModalType: () => null,
-  modalContent: '',
+  modalContent: [''],
   setModalContent: () => null,
 });
 
@@ -28,7 +28,7 @@ interface Props {
 export const ModalProvider: React.FC<Props> = ({ children }) => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [modalType, setModalType] = useState<string>('');
-  const [modalContent, setModalContent] = useState<string>('');
+  const [modalContent, setModalContent] = useState<string[]>(['']);
 
   const value = {
     showModal,

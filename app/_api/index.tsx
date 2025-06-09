@@ -3,7 +3,7 @@ export const matchInvoices: Invoice[][] = [
   [
     {
       controlNo: 'P-380812',
-      invoiceNo: '11066a',
+      invoiceNo: '11006a',
       vendor: 'Clarity Windows and Cleaning',
       amount: 1375,
       date: '1/31/2025',
@@ -14,7 +14,7 @@ export const matchInvoices: Invoice[][] = [
     },
     {
       controlNo: 'P-380798',
-      invoiceNo: '11066',
+      invoiceNo: '11006',
       vendor: 'Clarity Windows and Cleaning',
       amount: 1375,
       date: '1/31/2025',
@@ -75,7 +75,7 @@ export const matchInvoices: Invoice[][] = [
   [
     {
       controlNo: 'P-380798',
-      invoiceNo: '11066',
+      invoiceNo: '11006',
       vendor: 'Clarity Windows and Cleaning',
       amount: 1375,
       date: '1/31/2025',

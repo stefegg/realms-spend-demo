@@ -268,7 +268,7 @@ export default function ImageModal() {
             <Image
               ref={image1Ref}
               alt="image 1"
-              src={modalContent || '/placeholder.svg'}
+              src={modalContent[0] || '/placeholder.svg'}
               width={500}
               height={500}
               onMouseDown={handleMouseDown1}
@@ -336,7 +336,7 @@ export default function ImageModal() {
             <Image
               ref={image2Ref}
               alt="image 2"
-              src={modalContent || '/placeholder.svg'}
+              src={modalContent[1] || '/placeholder.svg'}
               width={500}
               height={500}
               onMouseDown={handleMouseDown2}

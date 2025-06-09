@@ -58,9 +58,9 @@ export function InvoiceMatch({
     });
   };
 
-  const clickViewInvoice = (imageId: string) => {
+  const clickViewInvoice = (imageId: string, imageId2: string) => {
     setModalType('image');
-    setModalContent(imageId);
+    setModalContent([imageId, imageId2]);
     setShowModal(true);
   };
 
@@ -108,7 +108,12 @@ export function InvoiceMatch({
                   variant="ghost"
                   size="sm"
                   className="h-7 px-2 text-xs hover:bg-blue-50 cursor-pointer bg-white shadow-sm"
-                  onClick={() => clickViewInvoice(invoice.imageId)}
+                  onClick={() =>
+                    clickViewInvoice(
+                      invoiceData[0].imageId,
+                      invoiceData[1].imageId,
+                    )
+                  }
                 >
                   <Eye className="w-3 h-3 mr-1 text-blue-600" />
                   <div className="text-sm font-medium">View Invoice</div>
