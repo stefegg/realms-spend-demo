@@ -7,8 +7,10 @@ export default function NavButton({
   link: string;
 }) {
   return (
-    <div className="bg-white pt-3.5 p-2 rounded-lg border-2 min-w-44 text-center hover:bg-realms hover:text-white hover:border-white cursor-pointer">
-      <Link href={link}>{label}</Link>
-    </div>
+    <Link href={link}>
+      <div className="bg-white pt-3.5 p-2 rounded-lg border-2 min-w-44 text-center hover:bg-realms hover:text-white hover:border-white cursor-pointer">
+        {label}
+      </div>
+    </Link>
   );
 }
